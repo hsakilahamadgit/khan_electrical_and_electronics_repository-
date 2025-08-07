@@ -1,0 +1,9 @@
+package khan_electrical_and_electronics.electrical_electronics_service_app.service;
+
+import khan_electrical_and_electronics.electrical_electronics_service_app.dto.ServiceRequestDto;
+import khan_electrical_and_electronics.electrical_electronics_service_app.entity.ServiceRequest;
+
+public interface ServiceRequestService {
+
+    ServiceRequest createServiceRequest(ServiceRequestDto serviceRequestDto);
+}
