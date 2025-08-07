@@ -10,27 +10,29 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
- @Service
+
+@Service
 public class LoginUserImpl implements LoginUserService {
 
-     @Autowired
-     private PasswordEncoder passwordEncoder;
     @Autowired
-private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public String loginUser(LoginUserDto loginUserDto) {
-      User user = userRepository.findByEmail(loginUserDto.getEmail()).orElseThrow(()->
-              new UserNotFoundException("User not found with email: " + loginUserDto.getEmail()));
-        System.out.println("User found:---------- " + user.getEmail() +"user password----------"+ user.getPassword());
+        User user = userRepository.findByEmail(loginUserDto.getEmail()).orElseThrow(() ->
+                new UserNotFoundException("User not found with email: " + loginUserDto.getEmail()));
+        System.out.println("User found:---------- " + user.getEmail() + "user password----------" + user.getPassword());
 
        /* if (optionalUser == null || !passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             return ResponseEntity.badRequest().body("Invalid email or password");
         }*/
-        if(loginUserDto.getPassword()==null||loginUserDto.getPassword().isBlank()){
+        if (loginUserDto.getPassword() == null || loginUserDto.getPassword().isBlank()) {
             return "Password cannot be null or empty";
         }
         if (passwordEncoder.matches(loginUserDto.getPassword(), user.getPassword())) {
-            System.out.println("checking password "+loginUserDto.getPassword() + " and " + user.getPassword());
+            System.out.println("checking password " + loginUserDto.getPassword() + " and " + user.getPassword());
             return "Login successful for user: " + user.getEmail();
         } else {
             return "Invalid email or password";
