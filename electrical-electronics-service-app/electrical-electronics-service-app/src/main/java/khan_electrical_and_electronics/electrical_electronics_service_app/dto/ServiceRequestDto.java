@@ -2,6 +2,10 @@ package khan_electrical_and_electronics.electrical_electronics_service_app.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 public class ServiceRequestDto {
 
     @NotBlank(message = "Urgency address is required")
@@ -11,15 +15,15 @@ public class ServiceRequestDto {
     private String issueDescription;
 
     @NotBlank(message = "Preferred date is required")
-    private String preferredDate;
+    private LocalDate preferredDate;
 
     @NotBlank(message = "Preferred time is required")
-    private String preferredTime;
+    private LocalTime preferredTime;
 
     public ServiceRequestDto() {
     }
 
-    public ServiceRequestDto(String urgencyAddress, String issueDescription, String preferredDate, String preferredTime) {
+    public ServiceRequestDto(String urgencyAddress, String issueDescription, LocalDate preferredDate, LocalTime preferredTime) {
         this.urgencyAddress = urgencyAddress;
         this.issueDescription = issueDescription;
         this.preferredDate = preferredDate;
@@ -42,19 +46,19 @@ public class ServiceRequestDto {
         this.issueDescription = issueDescription;
     }
 
-    public String getPreferredDate() {
+    public LocalDate getPreferredDate() {
         return preferredDate;
     }
 
-    public void setPreferredDate(String preferredDate) {
+    public void setPreferredDate(LocalDate preferredDate) {
         this.preferredDate = preferredDate;
     }
 
-    public String getPreferredTime() {
+    public LocalTime getPreferredTime() {
         return preferredTime;
     }
 
-    public void setPreferredTime(String preferredTime) {
+    public void setPreferredTime(LocalTime preferredTime) {
         this.preferredTime = preferredTime;
 
 

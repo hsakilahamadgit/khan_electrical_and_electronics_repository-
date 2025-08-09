@@ -53,7 +53,7 @@ public class GlobalExceptionHandler {
         exceptionDetail.setMessage(ex.getMessage());
         // Create a map to hold the error details
         Map<String, ExceptionDetail> error = new HashMap<>();
-        error.put("Error detail", exceptionDetail);
+        error.put("errorDetail", exceptionDetail);
 
         return error;
     }
