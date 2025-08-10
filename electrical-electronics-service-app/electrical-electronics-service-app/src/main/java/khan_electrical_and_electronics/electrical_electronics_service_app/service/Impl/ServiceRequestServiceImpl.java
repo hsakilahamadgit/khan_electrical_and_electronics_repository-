@@ -2,6 +2,7 @@ package khan_electrical_and_electronics.electrical_electronics_service_app.servi
 
 import khan_electrical_and_electronics.electrical_electronics_service_app.dto.ServiceRequestDto;
 import khan_electrical_and_electronics.electrical_electronics_service_app.entity.ServiceRequest;
+import khan_electrical_and_electronics.electrical_electronics_service_app.mapper.ServiceRequestMapper;
 import khan_electrical_and_electronics.electrical_electronics_service_app.repository.ServiceRequestRepository;
 import khan_electrical_and_electronics.electrical_electronics_service_app.service.ServiceRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,14 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     @Autowired
   private   ServiceRequestRepository serviceRequestRepository;
     @Override
-    public ServiceRequest createServiceRequest(ServiceRequestDto serviceRequestDto) {
+    public ServiceRequestDto createServiceRequest(ServiceRequestDto serviceRequestDto) {
+         int userId = 1;
+        ServiceRequest serviceRequest = ServiceRequestMapper.mapToEntity(serviceRequestDto);
+        serviceRequest.setUserId(userId); // Assuming userId is set to 1 for this example
+
+        ServiceRequest savedServiceRequest=serviceRequestRepository.save(serviceRequest);
 
 
-        return null;
+        return ServiceRequestMapper.mapToDto(savedServiceRequest);
     }
 }
