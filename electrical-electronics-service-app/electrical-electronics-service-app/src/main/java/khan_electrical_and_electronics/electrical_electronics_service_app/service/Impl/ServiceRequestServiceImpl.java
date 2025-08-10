@@ -15,8 +15,11 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
   private   ServiceRequestRepository serviceRequestRepository;
     @Override
     public ServiceRequestDto createServiceRequest(ServiceRequestDto serviceRequestDto) {
+         int userId = 1;
+        ServiceRequest serviceRequest = ServiceRequestMapper.mapToEntity(serviceRequestDto);
+        serviceRequest.setUserId(userId); // Assuming userId is set to 1 for this example
 
-        ServiceRequest savedServiceRequest=serviceRequestRepository.save(ServiceRequestMapper.mapToEntity(serviceRequestDto));
+        ServiceRequest savedServiceRequest=serviceRequestRepository.save(serviceRequest);
 
 
         return ServiceRequestMapper.mapToDto(savedServiceRequest);

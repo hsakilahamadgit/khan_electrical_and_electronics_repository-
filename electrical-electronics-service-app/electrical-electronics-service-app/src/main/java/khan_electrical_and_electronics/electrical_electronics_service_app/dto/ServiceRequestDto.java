@@ -1,6 +1,7 @@
 package khan_electrical_and_electronics.electrical_electronics_service_app.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,10 +15,10 @@ public class ServiceRequestDto {
     @NotBlank(message = "Issue description is required")
     private String issueDescription;
 
-    @NotBlank(message = "Preferred date is required")
+    @NotNull(message = "Preferred date is required")
     private LocalDate preferredDate;
 
-    @NotBlank(message = "Preferred time is required")
+    @NotNull(message = "Preferred time is required")
     private LocalTime preferredTime;
 
     public ServiceRequestDto() {

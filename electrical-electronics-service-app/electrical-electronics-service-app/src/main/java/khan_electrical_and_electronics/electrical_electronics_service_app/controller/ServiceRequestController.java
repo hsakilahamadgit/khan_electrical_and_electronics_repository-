@@ -18,7 +18,7 @@ private ServiceRequestService serviceRequestService;
     @PostMapping("/service-requests")
     public ResponseEntity<ServiceRequestDto> bookServiceRequest( @RequestBody @Valid ServiceRequestDto serviceRequestDto) {
 
-        serviceRequestService.createServiceRequest(serviceRequestDto);
+
 
         ServiceRequestDto savedServiceRequest=serviceRequestService.createServiceRequest(serviceRequestDto);
 
