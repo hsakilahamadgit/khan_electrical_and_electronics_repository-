@@ -21,15 +21,14 @@ public class User {
     @Column(name="password",nullable = false)
     private String password;
 
-    @Column(name = "role_id", nullable = false)
+    @Column(name = "role_id", nullable = false, insertable = false, updatable = false)
     private  Integer roleId;
 
-   /* @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
 
-*/
 
     public User() {
     }
@@ -75,6 +74,12 @@ public class User {
     }
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
+    }
+    public Role getRole() {
+        return role;
+    }
+    public void setRole(Role role) {
+        this.role = role;
     }
 
 }

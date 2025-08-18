@@ -1,7 +1,9 @@
 package khan_electrical_and_electronics.electrical_electronics_service_app.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -18,6 +20,8 @@ public class ServiceRequestDto {
     @NotNull(message = "Preferred date is required")
     private LocalDate preferredDate;
 
+    @DateTimeFormat(pattern = "HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     @NotNull(message = "Preferred time is required")
     private LocalTime preferredTime;
 

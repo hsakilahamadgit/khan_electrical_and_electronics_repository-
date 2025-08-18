@@ -25,7 +25,9 @@ public class UserDto {
     @Size(min = 6, message = "Password must be at least 6 characters long")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    private Integer roleId;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private Integer roleId; // Default role ID set to 2 (Customer)
 
    public UserDto(){
 

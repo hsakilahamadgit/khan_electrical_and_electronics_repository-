@@ -1,5 +1,6 @@
 package khan_electrical_and_electronics.electrical_electronics_service_app.service.Impl;
 
+import khan_electrical_and_electronics.electrical_electronics_service_app.dto.ExternalUserDto;
 import khan_electrical_and_electronics.electrical_electronics_service_app.dto.LoginUserDto;
 import khan_electrical_and_electronics.electrical_electronics_service_app.entity.User;
 import khan_electrical_and_electronics.electrical_electronics_service_app.exception.UserNotFoundException;
@@ -24,6 +25,15 @@ public class LoginUserImpl implements LoginUserService {
         User user = userRepository.findByEmail(loginUserDto.getEmail()).orElseThrow(() ->
                 new UserNotFoundException("User not found with email: " + loginUserDto.getEmail()));
         System.out.println("User found:---------- " + user.getEmail() + "user password----------" + user.getPassword());
+
+        ExternalUserDto optionalUser= new ExternalUserDto();
+        optionalUser.setId(user.getId());
+        optionalUser.setName(user.getName());
+        optionalUser.setEmail(user.getEmail());
+
+        System.out.println("User_id Found______"+ optionalUser.getId());
+        ServiceRequestServiceImpl.ExternalUser(optionalUser);
+
 
        /* if (optionalUser == null || !passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             return ResponseEntity.badRequest().body("Invalid email or password");

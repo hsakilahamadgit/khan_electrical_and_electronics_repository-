@@ -3,7 +3,7 @@ package khan_electrical_and_electronics.electrical_electronics_service_app.entit
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "role")
 public class Role {
 
     @Id

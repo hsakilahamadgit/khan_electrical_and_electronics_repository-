@@ -15,7 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UsersController {
 
     @Autowired

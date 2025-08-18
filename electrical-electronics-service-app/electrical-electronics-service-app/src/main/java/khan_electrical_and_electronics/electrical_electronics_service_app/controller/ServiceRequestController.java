@@ -5,11 +5,13 @@ import khan_electrical_and_electronics.electrical_electronics_service_app.dto.Se
 import khan_electrical_and_electronics.electrical_electronics_service_app.service.ServiceRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class ServiceRequestController {
 
     @Autowired
@@ -22,6 +24,7 @@ private ServiceRequestService serviceRequestService;
 
         ServiceRequestDto savedServiceRequest=serviceRequestService.createServiceRequest(serviceRequestDto);
 
+        System.out.println("Service Request created successfully-------------->: " + savedServiceRequest.getPreferredTime());
 
         // Logic to handle the creation of a service request
         // This will typically involve calling a service layer method

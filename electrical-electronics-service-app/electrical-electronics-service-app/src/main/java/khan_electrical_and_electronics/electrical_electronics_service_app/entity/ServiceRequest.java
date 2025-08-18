@@ -14,9 +14,10 @@ public class ServiceRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "user_id", nullable = false)
-    private int userId;
+   private Long id;
+    /*
+    @Column(name = "user_id", nullable = false, insertable = false, updatable = false)
+    private int userId;*/
 
     @Column(name = "urgency_address")
     private String urgencyAddress;
@@ -35,10 +36,9 @@ public class ServiceRequest {
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
-   /* @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-*/
 
     public ServiceRequest() {
     }
@@ -107,19 +107,19 @@ public class ServiceRequest {
         this.createdAt = createdAt;
     }
 
-   /* public User getUser() {
+    public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }*/
-    public int getUserId() {
+    }
+   /* public int getUserId() {
         return userId;
     }
     public void setUserId(int userId) {
         this.userId = userId;
-    }
+    }*/
 
 
 }
