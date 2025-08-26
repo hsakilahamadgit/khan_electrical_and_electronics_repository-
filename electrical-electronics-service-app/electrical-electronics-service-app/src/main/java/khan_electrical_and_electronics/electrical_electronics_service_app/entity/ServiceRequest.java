@@ -35,6 +35,8 @@ public class ServiceRequest {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(name = "service_id")
+    private int serviceId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -113,6 +115,12 @@ public class ServiceRequest {
 
     public void setUser(User user) {
         this.user = user;
+    }
+    public int getServiceId() {
+        return serviceId;
+    }
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
     }
    /* public int getUserId() {
         return userId;

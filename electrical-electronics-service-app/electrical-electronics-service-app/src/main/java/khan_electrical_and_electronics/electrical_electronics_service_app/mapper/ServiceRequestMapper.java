@@ -11,6 +11,8 @@ public class ServiceRequestMapper {
         serviceRequestDto.setUrgencyAddress(serviceRequest.getUrgencyAddress());
         serviceRequestDto.setIssueDescription(serviceRequest.getIssueDescription());
         serviceRequestDto.setPreferredDate(serviceRequest.getPreferredDate());
+        serviceRequestDto.setPreferredTime(serviceRequest.getPreferredTime());
+        serviceRequestDto.setServiceId(serviceRequest.getServiceId());
         return serviceRequestDto;
     }
 
@@ -20,6 +22,8 @@ public class ServiceRequestMapper {
         serviceRequest.setUrgencyAddress(serviceRequestDto.getUrgencyAddress());
         serviceRequest.setIssueDescription(serviceRequestDto.getIssueDescription());
         serviceRequest.setPreferredDate(serviceRequestDto.getPreferredDate());
+        serviceRequest.setPreferredTime(serviceRequestDto.getPreferredTime());
+        serviceRequest.setServiceId(serviceRequestDto.getServiceId());
         return serviceRequest;
     }
 

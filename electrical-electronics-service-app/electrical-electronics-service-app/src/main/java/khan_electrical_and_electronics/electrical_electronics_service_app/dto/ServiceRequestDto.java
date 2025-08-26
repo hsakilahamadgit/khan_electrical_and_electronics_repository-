@@ -1,12 +1,11 @@
 package khan_electrical_and_electronics.electrical_electronics_service_app.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class ServiceRequestDto {
@@ -20,10 +19,11 @@ public class ServiceRequestDto {
     @NotNull(message = "Preferred date is required")
     private LocalDate preferredDate;
 
-    @DateTimeFormat(pattern = "HH:mm:ss")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+    @Schema(type = "string", example = "09:00:00", description = "Preferred time in HH:mm:ss format")
+    @JsonFormat(pattern = "HH:mm:ss")
     @NotNull(message = "Preferred time is required")
     private LocalTime preferredTime;
+    private int serviceId;
 
     public ServiceRequestDto() {
     }
@@ -67,5 +67,11 @@ public class ServiceRequestDto {
         this.preferredTime = preferredTime;
 
 
+    }
+    public int getServiceId() {
+        return serviceId;
+    }
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
     }
 }
